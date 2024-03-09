@@ -2,13 +2,13 @@ import pandas as pd
 import requests
 
 search_locations = ["New York City, NY", "Queens, NY", 'Los Angeles, CA', 'San Francisco, CA', 'Chicago, IL', 'Houston, TX', 'Philadelphia, PA', 'Phoenix, AZ', 'San Antonio, TX', 'San Diego, CA', 'Dallas, TX', 'San Jose, CA', 'Austin, TX', 'Jacksonville, FL', 'Indianapolis, IN', 'Columbus, OH', 'Fort Worth, TX', 'Charlotte, NC', 'Seattle, WA', 'Denver, CO', 'El Paso, TX', 'Detroit, MI', 'Washington, DC', 'Boston, MA', 'Memphis, TN', 'Nashville, TN', 'Portland, OR', 'Oklahoma City, OK', 'Las Vegas, NV', 'Baltimore, MD', 'Louisville, KY', 'Milwaukee, WI', 'Albuquerque, NM', 'Tucson, AZ', 'Fresno, CA', 'Sacramento, CA', 'Kansas City, MO', 'Long Beach, CA', 'Mesa, AZ', 'Atlanta, GA', 'Colorado Springs, CO', 'Virginia Beach, VA', 'Raleigh, NC', 'Omaha, NE', 'Miami, FL', 'Oakland, CA', 'Minneapolis, MN', 'Tulsa, OK', 'Wichita, KS', 'New Orleans, LA', 'Arlington, TX']
-search_categories, search_term = "restaurants", "Australian"
-yelp_api_key = 'add_your_yelp_api_key_here'
+search_categories, search_term = "restaurants", "Boba Tea"
+yelp_api_key = 'jkfSNPOapGKi1k8fZfDYcKte--c2x-jGd6X5UVksYkElXl0bqr-SqZZWSJQdsvokokcYMObNc7bvOORHx2jJKHegJ8rXhwzk5rUmsyx1icKXW04grsgk1ChabLPsZXYx'
 yelp_api_path, search_api_path = 'https://api.yelp.com', '/v3/businesses/search'
 fields = ['id','name','price','rating','review_count','url']
 
 def search(term, categories, location):
-    output_filename = '{}_{}.csv'.format(term, location.replace(', ', '_').replace(' ', '_'))
+    output_filename = '../data/{}_{}.csv'.format(term, location.replace(', ', '_').replace(' ', '_'))
     offset, limit, total, entries = 0, 50, 20, []
     print('Looking into Yelp for {} in {}'.format(term, location))
     while offset < min(10, total):
